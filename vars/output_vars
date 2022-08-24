@@ -7,5 +7,5 @@ privsub2id: subnet-00f825030c6fbc1a4
 privsub3id: subnet-0c44d08dbfcce4075
 igwid: igw-03f370d61a2baa3d5
 pubRTid: rtb-0e998f1a4909fbadf
-NATGWid: nat-06761bab2dc713fbe
+NATGWid: nat-0dd56bd90219e1c39
 privRTid: rtb-0d96a709f9b7ceeed
