@@ -1,0 +1,93 @@
+2022-08-25 18:52:25,662 p=7539 u=root n=ansible | PLAY [Generate artifact, copy artifact & sql file to files directory] **************************************************************************************************************************
+2022-08-25 18:52:25,677 p=7539 u=root n=ansible | TASK [Gathering Facts] *************************************************************************************************************************************************************************
+2022-08-25 18:52:27,016 p=7539 u=root n=ansible | ok: [localhost]
+2022-08-25 18:52:27,042 p=7539 u=root n=ansible | TASK [Install  jdk, maven, git] ****************************************************************************************************************************************************************
+2022-08-25 18:52:37,802 p=7539 u=root n=ansible | ok: [localhost] => (item=git)
+2022-08-25 18:53:16,870 p=7539 u=root n=ansible | changed: [localhost] => (item=openjdk-8-jdk)
+2022-08-25 18:53:26,370 p=7539 u=root n=ansible | changed: [localhost] => (item=maven)
+2022-08-25 18:53:26,388 p=7539 u=root n=ansible | TASK [Clone source code from github] ***********************************************************************************************************************************************************
+2022-08-25 18:53:30,474 p=7539 u=root n=ansible | changed: [localhost]
+2022-08-25 18:53:30,490 p=7539 u=root n=ansible | TASK [mvn install command to build artifact] ***************************************************************************************************************************************************
+2022-08-25 18:54:18,578 p=7539 u=root n=ansible | changed: [localhost]
+2022-08-25 18:54:18,602 p=7539 u=root n=ansible | TASK [Copy artifacts to files directory] *******************************************************************************************************************************************************
+2022-08-25 18:54:19,810 p=7539 u=root n=ansible | changed: [localhost] => (item=/root/ansible-aws-vpc/provision-stack/Vprofile-repo/target/vprofile-v2.war)
+2022-08-25 18:54:19,826 p=7539 u=root n=ansible | TASK [Copy SQL file to files directory] ********************************************************************************************************************************************************
+2022-08-25 18:54:20,254 p=7539 u=root n=ansible | changed: [localhost]
+2022-08-25 18:54:20,280 p=7539 u=root n=ansible | PLAY RECAP *************************************************************************************************************************************************************************************
+2022-08-25 18:54:20,280 p=7539 u=root n=ansible | localhost                  : ok=6    changed=5    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2022-08-25 18:55:38,025 p=12449 u=root n=ansible | PLAY [Set host to ip mapping in /etc/hosts file of all the instances in the stack] *************************************************************************************************************
+2022-08-25 18:55:38,046 p=12449 u=root n=ansible | TASK [Gathering Facts] *************************************************************************************************************************************************************************
+2022-08-25 18:55:39,903 p=12449 u=root n=ansible | ok: [cntl]
+2022-08-25 18:56:24,227 p=12449 u=root n=ansible | fatal: [web01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 172.20.4.175 port 22: Connection timed out", "unreachable": true}
+2022-08-25 18:56:24,262 p=12449 u=root n=ansible | fatal: [app01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 172.20.4.159 port 22: Connection timed out", "unreachable": true}
+2022-08-25 18:56:24,318 p=12449 u=root n=ansible | fatal: [rmq01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 172.20.4.138 port 22: Connection timed out", "unreachable": true}
+2022-08-25 18:56:24,354 p=12449 u=root n=ansible | fatal: [mc01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 172.20.4.62 port 22: Connection timed out", "unreachable": true}
+2022-08-25 18:56:25,986 p=12449 u=root n=ansible | fatal: [db01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 172.20.4.223 port 22: Connection timed out", "unreachable": true}
+2022-08-25 18:56:26,013 p=12449 u=root n=ansible | TASK [Import VPC setup Variable] ***************************************************************************************************************************************************************
+2022-08-25 18:56:26,035 p=12449 u=root n=ansible | ok: [cntl]
+2022-08-25 18:56:26,050 p=12449 u=root n=ansible | TASK [Update hosts file for all the hosts] *****************************************************************************************************************************************************
+2022-08-25 18:56:26,426 p=12449 u=root n=ansible | changed: [cntl]
+2022-08-25 18:56:26,452 p=12449 u=root n=ansible | PLAY RECAP *************************************************************************************************************************************************************************************
+2022-08-25 18:56:26,452 p=12449 u=root n=ansible | app01                      : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2022-08-25 18:56:26,453 p=12449 u=root n=ansible | cntl                       : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2022-08-25 18:56:26,453 p=12449 u=root n=ansible | db01                       : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2022-08-25 18:56:26,453 p=12449 u=root n=ansible | mc01                       : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2022-08-25 18:56:26,453 p=12449 u=root n=ansible | rmq01                      : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2022-08-25 18:56:26,453 p=12449 u=root n=ansible | web01                      : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2022-08-25 18:57:29,580 p=12600 u=root n=ansible | PLAY [Set host to ip mapping in /etc/hosts file of all the instances in the stack] *************************************************************************************************************
+2022-08-25 18:57:29,594 p=12600 u=root n=ansible | TASK [Gathering Facts] *************************************************************************************************************************************************************************
+2022-08-25 18:57:31,311 p=12600 u=root n=ansible | ok: [cntl]
+2022-08-25 18:58:15,766 p=12600 u=root n=ansible | fatal: [web01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 172.20.4.175 port 22: Connection timed out", "unreachable": true}
+2022-08-25 18:58:15,818 p=12600 u=root n=ansible | fatal: [app01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 172.20.4.159 port 22: Connection timed out", "unreachable": true}
+2022-08-25 18:58:15,878 p=12600 u=root n=ansible | fatal: [rmq01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 172.20.4.138 port 22: Connection timed out", "unreachable": true}
+2022-08-25 18:58:15,906 p=12600 u=root n=ansible | fatal: [mc01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 172.20.4.62 port 22: Connection timed out", "unreachable": true}
+2022-08-25 18:58:17,394 p=12600 u=root n=ansible | fatal: [db01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 172.20.4.223 port 22: Connection timed out", "unreachable": true}
+2022-08-25 18:58:17,420 p=12600 u=root n=ansible | TASK [Import VPC setup Variable] ***************************************************************************************************************************************************************
+2022-08-25 18:58:17,441 p=12600 u=root n=ansible | ok: [cntl]
+2022-08-25 18:58:17,455 p=12600 u=root n=ansible | TASK [Update hosts file for all the hosts] *****************************************************************************************************************************************************
+2022-08-25 18:58:17,829 p=12600 u=root n=ansible | ok: [cntl]
+2022-08-25 18:58:17,856 p=12600 u=root n=ansible | PLAY RECAP *************************************************************************************************************************************************************************************
+2022-08-25 18:58:17,856 p=12600 u=root n=ansible | app01                      : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2022-08-25 18:58:17,857 p=12600 u=root n=ansible | cntl                       : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2022-08-25 18:58:17,857 p=12600 u=root n=ansible | db01                       : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2022-08-25 18:58:17,857 p=12600 u=root n=ansible | mc01                       : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2022-08-25 18:58:17,857 p=12600 u=root n=ansible | rmq01                      : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2022-08-25 18:58:17,857 p=12600 u=root n=ansible | web01                      : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2022-08-25 18:59:23,505 p=12746 u=root n=ansible | PLAY [Set host to ip mapping in /etc/hosts file of all the instances in the stack] *************************************************************************************************************
+2022-08-25 18:59:23,519 p=12746 u=root n=ansible | TASK [Gathering Facts] *************************************************************************************************************************************************************************
+2022-08-25 18:59:25,183 p=12746 u=root n=ansible | ok: [cntl]
+2022-08-25 19:00:09,686 p=12746 u=root n=ansible | fatal: [web01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 172.20.4.175 port 22: Connection timed out", "unreachable": true}
+2022-08-25 19:00:09,754 p=12746 u=root n=ansible | fatal: [app01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 172.20.4.159 port 22: Connection timed out", "unreachable": true}
+2022-08-25 19:00:09,794 p=12746 u=root n=ansible | fatal: [rmq01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 172.20.4.138 port 22: Connection timed out", "unreachable": true}
+2022-08-25 19:00:09,826 p=12746 u=root n=ansible | fatal: [mc01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 172.20.4.62 port 22: Connection timed out", "unreachable": true}
+2022-08-25 19:00:11,262 p=12746 u=root n=ansible | fatal: [db01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 172.20.4.223 port 22: Connection timed out", "unreachable": true}
+2022-08-25 19:00:11,287 p=12746 u=root n=ansible | TASK [Import VPC setup Variable] ***************************************************************************************************************************************************************
+2022-08-25 19:00:11,307 p=12746 u=root n=ansible | ok: [cntl]
+2022-08-25 19:00:11,321 p=12746 u=root n=ansible | TASK [Update hosts file for all the hosts] *****************************************************************************************************************************************************
+2022-08-25 19:00:11,690 p=12746 u=root n=ansible | ok: [cntl]
+2022-08-25 19:00:11,715 p=12746 u=root n=ansible | PLAY RECAP *************************************************************************************************************************************************************************************
+2022-08-25 19:00:11,716 p=12746 u=root n=ansible | app01                      : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2022-08-25 19:00:11,716 p=12746 u=root n=ansible | cntl                       : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2022-08-25 19:00:11,716 p=12746 u=root n=ansible | db01                       : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2022-08-25 19:00:11,716 p=12746 u=root n=ansible | mc01                       : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2022-08-25 19:00:11,716 p=12746 u=root n=ansible | rmq01                      : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2022-08-25 19:00:11,717 p=12746 u=root n=ansible | web01                      : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2022-08-25 19:03:05,411 p=12899 u=root n=ansible | PLAY [Set host to ip mapping in /etc/hosts file of all the instances in the stack] *************************************************************************************************************
+2022-08-25 19:03:05,424 p=12899 u=root n=ansible | TASK [Gathering Facts] *************************************************************************************************************************************************************************
+2022-08-25 19:03:07,119 p=12899 u=root n=ansible | ok: [cntl]
+2022-08-25 19:03:51,594 p=12899 u=root n=ansible | fatal: [web01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 172.20.4.175 port 22: Connection timed out", "unreachable": true}
+2022-08-25 19:03:51,650 p=12899 u=root n=ansible | fatal: [app01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 172.20.4.159 port 22: Connection timed out", "unreachable": true}
+2022-08-25 19:03:51,706 p=12899 u=root n=ansible | fatal: [rmq01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 172.20.4.138 port 22: Connection timed out", "unreachable": true}
+2022-08-25 19:03:51,734 p=12899 u=root n=ansible | fatal: [mc01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 172.20.4.62 port 22: Connection timed out", "unreachable": true}
+2022-08-25 19:03:53,202 p=12899 u=root n=ansible | fatal: [db01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 172.20.4.223 port 22: Connection timed out", "unreachable": true}
+2022-08-25 19:03:53,228 p=12899 u=root n=ansible | TASK [Import VPC setup Variable] ***************************************************************************************************************************************************************
+2022-08-25 19:03:53,248 p=12899 u=root n=ansible | ok: [cntl]
+2022-08-25 19:03:53,263 p=12899 u=root n=ansible | TASK [Update hosts file for all the hosts] *****************************************************************************************************************************************************
+2022-08-25 19:03:53,637 p=12899 u=root n=ansible | ok: [cntl]
+2022-08-25 19:03:53,663 p=12899 u=root n=ansible | PLAY RECAP *************************************************************************************************************************************************************************************
+2022-08-25 19:03:53,663 p=12899 u=root n=ansible | app01                      : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2022-08-25 19:03:53,664 p=12899 u=root n=ansible | cntl                       : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2022-08-25 19:03:53,664 p=12899 u=root n=ansible | db01                       : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2022-08-25 19:03:53,664 p=12899 u=root n=ansible | mc01                       : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2022-08-25 19:03:53,664 p=12899 u=root n=ansible | rmq01                      : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2022-08-25 19:03:53,665 p=12899 u=root n=ansible | web01                      : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
