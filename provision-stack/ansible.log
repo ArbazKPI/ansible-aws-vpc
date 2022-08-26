@@ -132,3 +132,44 @@
 2022-08-25 19:33:38,316 p=13143 u=root n=ansible | mc01                       : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
 2022-08-25 19:33:38,316 p=13143 u=root n=ansible | rmq01                      : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
 2022-08-25 19:33:38,316 p=13143 u=root n=ansible | web01                      : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2022-08-26 10:21:19,123 p=3741 u=root n=ansible | PLAY [Generate artifact, copy artifact & sql file to files directory] **************************************************************************************************************************
+2022-08-26 10:21:19,137 p=3741 u=root n=ansible | TASK [Gathering Facts] *************************************************************************************************************************************************************************
+2022-08-26 10:21:20,518 p=3741 u=root n=ansible | ok: [localhost]
+2022-08-26 10:21:20,544 p=3741 u=root n=ansible | TASK [Install  jdk, maven, git] ****************************************************************************************************************************************************************
+2022-08-26 10:21:27,141 p=3741 u=root n=ansible | ok: [localhost] => (item=git)
+2022-08-26 10:21:29,140 p=3741 u=root n=ansible | ok: [localhost] => (item=openjdk-8-jdk)
+2022-08-26 10:21:31,081 p=3741 u=root n=ansible | ok: [localhost] => (item=maven)
+2022-08-26 10:21:31,098 p=3741 u=root n=ansible | TASK [Clone source code from github] ***********************************************************************************************************************************************************
+2022-08-26 10:21:31,888 p=3741 u=root n=ansible | ok: [localhost]
+2022-08-26 10:21:31,903 p=3741 u=root n=ansible | TASK [mvn install command to build artifact] ***************************************************************************************************************************************************
+2022-08-26 10:21:31,918 p=3741 u=root n=ansible | skipping: [localhost]
+2022-08-26 10:21:31,933 p=3741 u=root n=ansible | TASK [Copy artifacts to files directory] *******************************************************************************************************************************************************
+2022-08-26 10:21:33,368 p=3741 u=root n=ansible | ok: [localhost] => (item=/root/ansible-aws-vpc/provision-stack/Vprofile-repo/target/vprofile-v2.war)
+2022-08-26 10:21:33,382 p=3741 u=root n=ansible | TASK [Copy SQL file to files directory] ********************************************************************************************************************************************************
+2022-08-26 10:21:33,844 p=3741 u=root n=ansible | ok: [localhost]
+2022-08-26 10:21:33,871 p=3741 u=root n=ansible | PLAY [Set host to ip mapping in /etc/hosts file of all the instances in the stack] *************************************************************************************************************
+2022-08-26 10:21:33,881 p=3741 u=root n=ansible | TASK [Gathering Facts] *************************************************************************************************************************************************************************
+2022-08-26 10:21:35,297 p=3741 u=root n=ansible | ok: [cntl]
+2022-08-26 10:22:20,070 p=3741 u=root n=ansible | fatal: [web01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 172.20.4.46 port 22: Connection timed out", "unreachable": true}
+2022-08-26 10:22:20,119 p=3741 u=root n=ansible | fatal: [app01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 172.20.4.70 port 22: Connection timed out", "unreachable": true}
+2022-08-26 10:22:20,158 p=3741 u=root n=ansible | fatal: [rmq01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 172.20.4.117 port 22: Connection timed out", "unreachable": true}
+2022-08-26 10:22:20,210 p=3741 u=root n=ansible | fatal: [mc01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 172.20.4.223 port 22: Connection timed out", "unreachable": true}
+2022-08-26 10:22:21,390 p=3741 u=root n=ansible | fatal: [db01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 172.20.4.140 port 22: Connection timed out", "unreachable": true}
+2022-08-26 10:22:21,416 p=3741 u=root n=ansible | TASK [Import VPC setup Variable] ***************************************************************************************************************************************************************
+2022-08-26 10:22:21,438 p=3741 u=root n=ansible | ok: [cntl]
+2022-08-26 10:22:21,453 p=3741 u=root n=ansible | TASK [Update hosts file for all the hosts] *****************************************************************************************************************************************************
+2022-08-26 10:22:21,838 p=3741 u=root n=ansible | changed: [cntl]
+2022-08-26 10:22:21,864 p=3741 u=root n=ansible | PLAY [Setup Mysql with accounts db and remote login] *******************************************************************************************************************************************
+2022-08-26 10:22:21,867 p=3741 u=root n=ansible | PLAY [Deploy SQL file on accounts db] **********************************************************************************************************************************************************
+2022-08-26 10:22:21,870 p=3741 u=root n=ansible | PLAY [Install Memcache, Start & enable SVC] ****************************************************************************************************************************************************
+2022-08-26 10:22:21,873 p=3741 u=root n=ansible | PLAY [Install & Setup RabbitMQ with user] ******************************************************************************************************************************************************
+2022-08-26 10:22:21,876 p=3741 u=root n=ansible | PLAY [Setup Tomcat8 & Deploy Artifact] *********************************************************************************************************************************************************
+2022-08-26 10:22:21,880 p=3741 u=root n=ansible | PLAY [Setup Nginx svc] *************************************************************************************************************************************************************************
+2022-08-26 10:22:21,881 p=3741 u=root n=ansible | PLAY RECAP *************************************************************************************************************************************************************************************
+2022-08-26 10:22:21,882 p=3741 u=root n=ansible | app01                      : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2022-08-26 10:22:21,882 p=3741 u=root n=ansible | cntl                       : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2022-08-26 10:22:21,882 p=3741 u=root n=ansible | db01                       : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2022-08-26 10:22:21,882 p=3741 u=root n=ansible | localhost                  : ok=5    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2022-08-26 10:22:21,882 p=3741 u=root n=ansible | mc01                       : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2022-08-26 10:22:21,882 p=3741 u=root n=ansible | rmq01                      : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2022-08-26 10:22:21,883 p=3741 u=root n=ansible | web01                      : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
